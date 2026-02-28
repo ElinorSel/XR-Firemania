@@ -73,6 +73,26 @@ mono_crash.*
 *.unitypackage.meta
 *.app
 
+# Android build files
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# Build outputs
+APK/
+*.apk
+*.aab
+
+# For Unity projects:
+[Bb]uild/
+[Bb]uilds/
+
+# Or for native Android:
+app/build/
+build/
+.gradle/
+
 # Crashlytics generated file
 crashlytics-build.properties
 
