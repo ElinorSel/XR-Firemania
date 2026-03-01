@@ -1,7 +1,9 @@
 using UnityEngine;
+using System.Collections.Generic;
 
-public class S_GameManager : MonoBehaviour
+public class FireLogic : MonoBehaviour
 {
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -12,5 +14,10 @@ public class S_GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnParticleCollision(GameObject other)
+    {
+        Destroy(gameObject);
     }
 }
