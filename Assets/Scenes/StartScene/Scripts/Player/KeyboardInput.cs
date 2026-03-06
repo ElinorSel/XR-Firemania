@@ -27,18 +27,20 @@ public class KeyboardInput : MonoBehaviour, IPlayerInput
     void Update()
     {
             updateLookDirection();
-            getShootTrigger();
     }
 
     private void updateLookDirection()
     {
                 
-        float mouseX = Input.GetAxis("Mouse X") * _mouseSensitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * _mouseSensitivity;
-
-        _rotationY += mouseX;
-        _rotationX -= mouseY;
-        _rotationX = Mathf.Clamp(_rotationX, -90f, 90f); // Prevent looking too far up/down
+        if (Mouse.current != null)
+        {
+            Vector2 mouseDelta = Mouse.current.delta.ReadValue();
+            float mouseX = mouseDelta.x * _mouseSensitivity;
+            float mouseY = mouseDelta.y * _mouseSensitivity;
+            _rotationY += mouseX;
+            _rotationX -= mouseY;
+            _rotationX = Mathf.Clamp(_rotationX, -90f, 90f); // Prevent looking too far up/down
+        }
         
         if (_headCamera)
             _headCamera.localRotation = Quaternion.Euler(_rotationX, _rotationY, 0);
@@ -54,8 +56,8 @@ public class KeyboardInput : MonoBehaviour, IPlayerInput
     }
 
     public bool getShootTrigger(){ //contract
-        Debug.Log(shootAction.IsPressed());
-        return shootAction.IsPressed();
+      float value = shootAction.ReadValue<float>();
+      return value > 0.1f;
     }
 
 }
