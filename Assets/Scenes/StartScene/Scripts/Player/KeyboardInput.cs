@@ -16,31 +16,31 @@ public class KeyboardInput : MonoBehaviour, IPlayerInput
 
     private bool _hasFired;           // Did we shoot this frame?
     InputAction shootAction;
+    InputAction moveAction;
     void Start()
     {
         // Hide and lock mouse cursor so it feels like an FPS game
         Cursor.lockState = CursorLockMode.Locked;
         shootAction = InputSystem.actions.FindAction("Shoot");
+        moveAction = InputSystem.actions.FindAction("Move");
     }
 
     // Update is called once per frame
     void Update()
     {
             updateLookDirection();
+            getShootTrigger();
     }
 
     private void updateLookDirection()
     {
                 
-        if (Mouse.current != null)
-        {
-            Vector2 mouseDelta = Mouse.current.delta.ReadValue();
-            float mouseX = mouseDelta.x * _mouseSensitivity;
-            float mouseY = mouseDelta.y * _mouseSensitivity;
-            _rotationY += mouseX;
-            _rotationX -= mouseY;
-            _rotationX = Mathf.Clamp(_rotationX, -90f, 90f); // Prevent looking too far up/down
-        }
+        float mouseX = Input.GetAxis("Mouse X") * _mouseSensitivity;
+        float mouseY = Input.GetAxis("Mouse Y") * _mouseSensitivity;
+
+        _rotationY += mouseX;
+        _rotationX -= mouseY;
+        _rotationX = Mathf.Clamp(_rotationX, -90f, 90f); // Prevent looking too far up/down
         
         if (_headCamera)
             _headCamera.localRotation = Quaternion.Euler(_rotationX, _rotationY, 0);
@@ -56,8 +56,11 @@ public class KeyboardInput : MonoBehaviour, IPlayerInput
     }
 
     public bool getShootTrigger(){ //contract
-      float value = shootAction.ReadValue<float>();
-      return value > 0.1f;
+        Debug.Log(shootAction.IsPressed());
+        return shootAction.IsPressed();
     }
+
+
+
 
 }

@@ -45,9 +45,12 @@ public class FireSpawner : MonoBehaviour
             //TODO: add logic to check if valid spawnLocation!
             randomLocation = new Vector3(
             Random.Range(-fireSpawnArea.x / 2, fireSpawnArea.x / 2),
-            2,
+            0.1f,
             Random.Range(-fireSpawnArea.z / 2, fireSpawnArea.z / 2));
-            Instantiate(firePrefab, randomLocation, Quaternion.identity);
+            GameObject newFire = Instantiate(firePrefab, randomLocation, Quaternion.identity);
+            // Random scale
+            float scaleFactor = Random.Range(1f, 5f); 
+            newFire.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
         }
     }
 
