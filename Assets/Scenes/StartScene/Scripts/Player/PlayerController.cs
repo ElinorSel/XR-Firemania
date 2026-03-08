@@ -4,6 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private ParticleSystem waterStream;
+   
     private IPlayerInput _input;
 
     // In Awake, we look for any script on this object (whichever object has the PlayerController component added to it) that implements IPlayerInput. 
@@ -14,7 +15,6 @@ public class PlayerController : MonoBehaviour
    }
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -37,4 +37,11 @@ public class PlayerController : MonoBehaviour
             emission.enabled = false;
         }
     }
+
+
+
+
+
+
+
 }

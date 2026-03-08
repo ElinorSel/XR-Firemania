@@ -54,7 +54,7 @@ public class FireSpawner : MonoBehaviour
 
             GameObject newFire = Instantiate(randomPrefab, randomLocation, Quaternion.identity);
             // Random scale
-            float scaleFactor = Random.Range(1f, 5f); 
+            float scaleFactor = Random.Range(1f, 6f); 
             newFire.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
         }
     }

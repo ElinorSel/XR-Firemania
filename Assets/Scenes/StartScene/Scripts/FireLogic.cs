@@ -18,6 +18,8 @@ public class FireLogic : MonoBehaviour
 
     void OnParticleCollision(GameObject other)
     {
+
         Destroy(gameObject);
+        GameManager.Instance.IncreaseScore();
     }
 }

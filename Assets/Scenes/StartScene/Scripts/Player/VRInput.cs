@@ -34,7 +34,7 @@ public class VRInput : MonoBehaviour, IPlayerInput
     public bool getShootTrigger()
     {
         float value = triggerAction.action.ReadValue<float>();
-        Debug.Log($"Trigger float value: {value}");
+        //Debug.Log($"Trigger float value: {value}");
         return value > 0.1f;
     }
 }

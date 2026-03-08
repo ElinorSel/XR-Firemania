@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1158489306337048716}
   m_Layer: 0
   m_Name: Fire
-  m_TagString: Untagged
+  m_TagString: Fire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7076956908989410143}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.14, y: 1, z: 9.71}
+  m_LocalPosition: {x: -4.14, y: 1.118, z: 9.71}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -114,8 +114,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.18737984, y: 0.20961642, z: 0.11642122}
-  m_Center: {x: -0.08525658, y: 0.05006687, z: -0.0068581104}
+  m_Size: {x: 0.2654342, y: 1.27, z: 0.28974432}
+  m_Center: {x: 0.005026132, y: 0.11271191, z: -0.020196727}
 --- !u!1001 &7397997856624947142
 PrefabInstance:
   m_ObjectHideFlags: 0
