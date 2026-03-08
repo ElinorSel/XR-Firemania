@@ -4,7 +4,7 @@ using System.Collections;
 public class FireSpawner : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [SerializeField] GameObject firePrefab;
+    [SerializeField] GameObject[] firePrefabs;
     [SerializeField] private int spawnIntervalMinSeconds = 1;
     [SerializeField] private int spawnIntervalMaxSeconds = 10;
     [SerializeField] private int minFiresPerSpawnIntervall = 1;
@@ -47,7 +47,12 @@ public class FireSpawner : MonoBehaviour
             Random.Range(-fireSpawnArea.x / 2, fireSpawnArea.x / 2),
             0.1f,
             Random.Range(-fireSpawnArea.z / 2, fireSpawnArea.z / 2));
-            GameObject newFire = Instantiate(firePrefab, randomLocation, Quaternion.identity);
+
+
+            // Pick random prefab
+            GameObject randomPrefab = firePrefabs[Random.Range(0, firePrefabs.Length)];
+
+            GameObject newFire = Instantiate(randomPrefab, randomLocation, Quaternion.identity);
             // Random scale
             float scaleFactor = Random.Range(1f, 5f); 
             newFire.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
