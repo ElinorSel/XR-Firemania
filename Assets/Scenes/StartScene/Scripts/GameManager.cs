@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject DeathUI;
     public TextMeshProUGUI scoreText;
     [Header("Score")]
-    public static GameManager Instance { get; private set; }
+
     public int score = 0;
 
     [Header("Timer")]
@@ -16,15 +16,9 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        scoreText.text = " " + score;
+        ResetGame();
         DeathUI.SetActive(false);
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
+
     }
 
     void Update()
@@ -45,5 +39,14 @@ public class GameManager : MonoBehaviour
         score++;
         scoreText.text = " " + score;
 
+    }
+
+        public void ResetGame()
+    {
+        scoreText.text = " " + score;
+        score = 0;
+        timer = 0f;
+        Time.timeScale = 1f;
+        Time.fixedDeltaTime = 0.02f;
     }
 }

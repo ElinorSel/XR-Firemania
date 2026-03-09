@@ -17,11 +17,20 @@ public class SceneLoader : MonoBehaviour
     }
        public void LoadForrest()
     {
-        SceneManager.LoadScene("Forrest");
+        
+        SceneManager.LoadScene("Forest");
     }
 
     public void LoadBuilding()
     {
+        
         SceneManager.LoadScene("StartScene");
     }
+
+      public void LoadMenu()
+    {
+       
+        SceneManager.LoadScene("MainMenu");
+    }
+
 }
